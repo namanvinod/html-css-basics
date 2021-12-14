@@ -1,0 +1,22 @@
+* {
+    padding: 10px;
+}
+
+h1 {
+    color: blue;
+}
+
+.parent-container {
+    border: 1px blue solid;
+    min-width: 400px;
+    width: 50%; 
+    display: flex;
+}
+
+.first-child-container {
+    flex-basis: 100%;
+}
+
+.second-child-container {
+    flex-basis: 100%;
+}
