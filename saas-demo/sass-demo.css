@@ -8,10 +8,13 @@ body {
 
 h1 {
   float: right;
+  border-bottom: 1px solid black;
 }
 
-div {
+div:not(.first-section) {
   padding: 0px 10px;
+  border-bottom: 1px solid black;
+  border-top: 1px solid black;
 }
 
 .first-section {
@@ -32,6 +35,7 @@ div {
 
 .first-section > div:first-of-type {
   justify-content: flex-start;
+  align-items: flex-start;
 }
 
 .first-section > div:last-of-type {
