@@ -13,9 +13,9 @@ body {
     min-height: 50px;
     line-height: 20px;
     background-color: white;
-    padding: 0 250px; 
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .header .logo {
@@ -42,7 +42,7 @@ body {
     padding: 5px;
 }
 
-.header input, button, div {
+.header input, button, .nav-bar, .profile {
     margin: 0 20px 0 0;
 }
 
