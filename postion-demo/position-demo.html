@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function handleVisibility(scenario) {
+            let container = document.getElementById(scenario);
+            container.className = container.className.indexOf('hide') > -1 
+                                  ? container.className.substring(0, container.className.indexOf('hide'))
+                                  : container.className + ' hide';
+            console.log(container.className);
+        } 
+    </script>
+    <style>
+        .hide {
+            display: none;
+        }
+
+        .absolute {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            width: 500px;
+            height: 30px;
+            border: 1px solid blue;
+        }
+
+        .fixed {
+            position: fixed;
+            top: 0px;
+            left: 10px;
+            width: 300px;
+            height: 30px;
+            border: 1px solid green;
+        }
+
+        .relative {
+            position: relative;
+            top: 30px;
+            left: 30px;
+            width: 400px;
+            height: 30px;
+            border: 1px solid red;
+        }
+
+        .demo-container {
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-container">
+        <div id="scene-1" class="absolute hide">
+            1. This is First Parent absolute div.
+            <div class="absolute">
+                1. This is First Child absolute div.
+            </div> 
+        </div>
+        
+        <div id="scene-2" class="absolute hide">
+            2. This is Second Parent absolute div.
+            <div class="relative">
+                2. This is Second Child relative div.
+            </div> 
+        </div>
+        
+        <div id="scene-3" class="absolute hide">
+            3. This is Third Parent absolute div.
+            <div class="fixed">
+                3. This is Third Child fixed div.
+            </div> 
+        </div>
+        <div id="scene-4" class="relative hide">
+            4. This is Fourth Parent Relative div.
+            <div class="absolute">
+                4. This is Fourth Child Absolute div.
+            </div> 
+        </div>
+        <div id="scene-5" class="relative hide">
+            5. This is Parent Relative div.
+            <br>
+            123
+            <div class="relative">
+                5. This is Child Relative div.
+            </div> 
+        </div>
+    </div>
+    <div>
+        <button onClick="handleVisibility('scene-1')">Abs + Abs</button>
+        <button onClick="handleVisibility('scene-2')">Abs + Rel</button>
+        <button onClick="handleVisibility('scene-3')">Abs + Fixed</button>
+        <button onClick="handleVisibility('scene-4')">Rel + Abs</button>
+        <button onClick="handleVisibility('scene-5')">Rel + Rel</button>
+    </div>
+    
+</body>
+</html>
