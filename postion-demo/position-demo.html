@@ -14,10 +14,9 @@
                                   : container.className + ' hide';
 
             for(let counter = 1; counter < 9; counter++) {
-                if(`scene-${counter}` !== scenario) {
-                    container = document.getElementById(`scene-${counter}`);
-                    container.className = container.className + ' hide';
-                }
+                if(`scene-${counter}` === scenario) return;
+                container = document.getElementById(`scene-${counter}`);
+                container.className = container.className + ' hide';
             }
         } 
     </script>
