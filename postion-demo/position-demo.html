@@ -8,10 +8,17 @@
     <script>
         function handleVisibility(scenario) {
             let container = document.getElementById(scenario);
+            
             container.className = container.className.indexOf('hide') > -1 
                                   ? container.className.substring(0, container.className.indexOf('hide'))
                                   : container.className + ' hide';
-            console.log(container.className);
+
+            for(let counter = 1; counter < 9; counter++) {
+                if(`scene-${counter}` !== scenario) {
+                    container = document.getElementById(`scene-${counter}`);
+                    container.className = container.className + ' hide';
+                }
+            }
         } 
     </script>
     <style>
@@ -21,7 +28,7 @@
 
         .absolute {
             position: absolute;
-            top: 30px;
+            top: 0px;
             left: 30px;
             width: 500px;
             height: 30px;
@@ -46,6 +53,19 @@
             border: 1px solid red;
         }
 
+        .margin-top-50 {
+            margin-top: 50px;
+        }
+        
+        .border-top-pink {
+            border-top: 1px pink solid;
+            border-bottom: none;
+        }
+
+        .border-bottom-yellow {
+            border-bottom: 1px yellow solid;
+            border-top: none;
+        }
         .demo-container {
             height: 300px;
         }
@@ -54,16 +74,28 @@
 <body>
     <div class="demo-container">
         <div id="scene-1" class="absolute hide">
-            1. This is First Parent absolute div.
-            <div class="absolute">
-                1. This is First Child absolute div.
-            </div> 
+            1. This is Parent absolute div.
+            <div class="absolute border-bottom-yellow">
+                1. This is Child absolute div.
+            </div>
+            <div class="margin-top-50">
+                1.1 This is Parent static div.
+                <div class="absolute border-top-pink">
+                    1.1 This is Child absolute div.
+                </div> 
+            </div>
         </div>
         
         <div id="scene-2" class="absolute hide">
             2. This is Second Parent absolute div.
             <div class="relative">
                 2. This is Second Child relative div.
+            </div>
+            <div class="margin-top-50">
+                2.1 This is Parent static div.
+                <div class="relative border-top-pink">
+                    2.1 This is Child relative div.
+                </div> 
             </div> 
         </div>
         
@@ -87,6 +119,28 @@
                 5. This is Child Relative div.
             </div> 
         </div>
+        <div id="scene-6" class="relative hide">
+            6. This is Parent Relative div.
+            <br>
+            123
+            <div class="fixed">
+                6. This is Child Fixed div.
+            </div> 
+        </div>
+        <div id="scene-7" class="hide">
+            7. This is Parent Static div.
+            <br>
+            123
+            <div class="relative">
+                7. This is Child Relative div.
+            </div> 
+        </div>
+        <div id="scene-8" class="hide">
+            8. This is Parent Static div.
+            <div class="absolute">
+                8. This is Child Absolute div.
+            </div> 
+        </div>
     </div>
     <div>
         <button onClick="handleVisibility('scene-1')">Abs + Abs</button>
@@ -94,6 +148,9 @@
         <button onClick="handleVisibility('scene-3')">Abs + Fixed</button>
         <button onClick="handleVisibility('scene-4')">Rel + Abs</button>
         <button onClick="handleVisibility('scene-5')">Rel + Rel</button>
+        <button onClick="handleVisibility('scene-6')">Rel + Fixed</button>
+        <button onClick="handleVisibility('scene-7')">Stat + Rel</button>
+        <button onClick="handleVisibility('scene-8')">Stat + Abs</button>
     </div>
     
 </body>
