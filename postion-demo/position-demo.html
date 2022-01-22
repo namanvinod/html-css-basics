@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,10 +14,11 @@
                                   ? container.className.substring(0, container.className.indexOf('hide'))
                                   : container.className + ' hide';
 
-            for(let counter = 1; counter < 9; counter++) {
-                if(`scene-${counter}` === scenario) return;
-                container = document.getElementById(`scene-${counter}`);
-                container.className = container.className + ' hide';
+            for (let counter = 1; counter < 9; counter++) {
+                if (`scene-${counter}` !== scenario) {
+                    container = document.getElementById(`scene-${counter}`);
+                    container.className = container.className + ' hide';
+                }
             }
         } 
     </script>
@@ -64,6 +66,7 @@
             border-bottom: 1px yellow solid;
             border-top: none;
         }
+
         .demo-container {
             height: 300px;
         }
@@ -101,13 +104,13 @@
             3. This is Third Parent absolute div.
             <div class="fixed">
                 3. This is Third Child fixed div.
-            </div> 
+            </div>
         </div>
         <div id="scene-4" class="relative hide">
             4. This is Fourth Parent Relative div.
             <div class="absolute">
                 4. This is Fourth Child Absolute div.
-            </div> 
+            </div>
         </div>
         <div id="scene-5" class="relative hide">
             5. This is Parent Relative div.
@@ -115,7 +118,7 @@
             123
             <div class="relative">
                 5. This is Child Relative div.
-            </div> 
+            </div>
         </div>
         <div id="scene-6" class="relative hide">
             6. This is Parent Relative div.
@@ -123,7 +126,7 @@
             123
             <div class="fixed">
                 6. This is Child Fixed div.
-            </div> 
+            </div>
         </div>
         <div id="scene-7" class="hide">
             7. This is Parent Static div.
@@ -131,13 +134,13 @@
             123
             <div class="relative">
                 7. This is Child Relative div.
-            </div> 
+            </div>
         </div>
         <div id="scene-8" class="hide">
             8. This is Parent Static div.
             <div class="absolute">
                 8. This is Child Absolute div.
-            </div> 
+            </div>
         </div>
     </div>
     <div>
@@ -150,6 +153,5 @@
         <button onClick="handleVisibility('scene-7')">Stat + Rel</button>
         <button onClick="handleVisibility('scene-8')">Stat + Abs</button>
     </div>
-    
 </body>
 </html>
