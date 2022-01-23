@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Width Demo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            border: 1px solid green;
+            margin: 5px;
+            padding: 5px;
+        }
+
+        .width-100 {
+            width: 100%;
+        }
+
+        .width-max {
+            width: max-content;
+        }
+
+        .width-min {
+            width: min-content;
+        }
+
+        .width-fit {
+            width: fit-content;
+        }
+
+        .box-sizing-border-box {
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="width: 400px">
+        <div class="width-100 box-sizing-border-box">
+            width: 100% and box-sizing: border-box
+            <div> Another div </div>
+        </div>
+        <div class="width-100">
+            width: 100% and box-sizing: content-box
+            <div> Another div </div>
+        </div>
+        <div class="box-sizing-border-box">
+            width: auto and box-sizing: border-box
+            <div> Another div </div>
+        </div>
+        <div>
+            width: auto and box-sizing: content-box
+            <div> Another div </div>
+        </div>
+        <div class="width-max">
+            width: max-content
+            <div class="width-max"> Another div with long content </div>
+        </div>
+        <div class="width-min">
+            width: min-content
+        </div>
+        <div style="width:350px">
+            <div class="width-fit"> child with width:fit-content; behaves as max-content. </div>
+        </div>
+        <div style="width:100px">
+            <div class="width-fit"> child with width:fitcontent; behaves as min-content. </div>
+        </div>
+    </div>
+</body>
+
+</html>
