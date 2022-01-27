@@ -9,7 +9,7 @@ body {
   background-color: lightgray;
 }
 
-.header {
+header {
   min-height: 50px;
   line-height: 20px;
   background-color: white;
@@ -18,22 +18,36 @@ body {
   justify-content: center;
 }
 
-.header .logo {
+header .header-content {
+  display: flex;
+  align-items: center;
+  flex: 1 1 auto;
+}
+
+header .header-side-space {
+  flex: 1 1 auto;
+}
+
+.header-content .logo {
   color: #b92b27;
   margin: 0 35px 0 0;
   font-size: 170%;
   font-weight: bolder;
 }
 
-.header div, li {
+.header-content div, li {
   display: inline-block;
 }
 
-.header .nav div, li {
+.header-content nav {
+  display: inline-block;
+}
+
+.header-content nav div, li {
   margin: 0 25px 0 0;
 }
 
-.header input {
+.header-content input {
   padding: 5px;
   color: #282829;
   border-color: #282829;
@@ -44,17 +58,17 @@ body {
   min-height: 26px;
 }
 
-.header button {
+.header-content button {
   padding: 0 15px;
   height: 30px;
   min-width: 30px;
 }
 
-.header input, button, .nav-bar, .profile {
+.header-content input, button, .nav-bar, .profile {
   margin: 0 20px 0 0;
 }
 
-.header .profile {
+.header-content .profile {
   border-radius: 50%;
   width: 40px;
   height: 40px;
